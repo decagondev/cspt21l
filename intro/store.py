@@ -1,3 +1,5 @@
+from category import Category
+
 class Store:
     def __init__(self, name, categories):
         self.name = name
@@ -6,7 +8,7 @@ class Store:
     def __str__(self):
         output = f"{self.name}\n"
         for i, cat in enumerate(self.categories):
-            output += f"   [{i + 1}] {cat}\n"
+            output += f"   [{i + 1}] {cat.name}\n"
         
         output += f"   [{i + 2}] Exit\n"
         return output
@@ -14,7 +16,7 @@ class Store:
 
 
 
-my_store = Store("My Store", ["Clothes", "Baseball", "Hockey"])
+my_store = Store("My Store", [Category("Clothes"), Category("Baseball"), Category("Hockey")])
 selection = 0
 while selection != len(my_store.categories) + 1:
     print(my_store)
